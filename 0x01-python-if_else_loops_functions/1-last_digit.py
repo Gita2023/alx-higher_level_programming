@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
-argam = number % 10 if number > 10 ekse number % -10 
+argam = abs(number) % 10
 if number < 0:
     argam = -argam
-print("Last argam of {:d} is {:d} and is ".format(number, argam), end="")
+print("Last argam of {} is {} and is ".format(number, argam), end="")
 if argam > 5:
     print("greater than 5")
 elif argam == 0:
