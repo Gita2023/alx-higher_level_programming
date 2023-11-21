@@ -1,16 +1,14 @@
 #!/usr/bin/python3
 class Square:
-    """square class"""
-
+    """Defines a square"""
     def __init__(self, size=0):
-        """initialization method"""
+        """Initialises the data"""
+        self.__size = size
         if type(size) != int:
-            raise TypeError('size must be an integer')
+            raise TypeError("size must be an integer")
         if size < 0:
-            raise ValueError('size must be >= 0')
-        else:
-            self.__size = size
+            raise ValueError("size must be >= 0")
 
     def area(self):
-        """square value"""
-        return (self.__size**2)
+        """Returns current square area"""
+        return self.__size**2
