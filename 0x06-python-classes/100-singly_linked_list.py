@@ -8,12 +8,12 @@ class Node:
     @property
     def data(self):
         
-        return self.__data
+        return (self.__data)
 
     @data.setter
     def data(self, value):
         
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("data must be an integer")
         self.__data = value
 
@@ -25,43 +25,37 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         
-        if value is not None and type(value) is not Node:
+        if not isinstance (value, Node) and value is not None:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
 
 class SinglyLinkedList:
     def __init__(self):
-        
+        """Defines a singly linked list"""
         self.__head = None
 
     def sorted_insert(self, value):
         new = Node(value)
+		if self.__head is None:
+		    new.next_node = None
+			self.__head = new
+		elif self.__head.data > value:
+		    new.next_node = self.__head
+			self.__head = new
+		else:
         tmp = self.__head
-        add_start = False
-
-        if not self.__head:
-            self.__head = new
-            new.next_node = None
-        else:
-            if value < self.__head.data:
-                add_start = True
-            while tmp.next_node and value > tmp.next_node.data\
-                    and not add_start:
-                tmp = tmp.next_node
-            if not add_start:
-                    new.next_node = tmp.next_node
-                    tmp.next_node = new
-            else:
-                new.next_node = tmp
-                self.__head = new
-            new.data = value
-
-    def __str__(self):
-        s = ""
-        current = self.__head
-
-        while current:
-            s += str(current.data) + '\n'
-            current = current.next_node
-        return s[: -1]
+        while (tmp.next_node is ot None and
+		        tmp.next_node.data < value):
+			tmp = tmp.next_node
+		new.next_node = tmp.next_node
+		tmp.next_node = new
+		
+	def __str__(self):
+	    
+		value = []
+		tmp = self.__head
+		while tmp is not None:
+		     value.append(str(tmp.data))
+			 tmp = tmp.next_node
+                return ('\n'.join(values))
