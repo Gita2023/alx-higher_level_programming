@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-""lockerClass
-    ""
+'low momory cost
+    '
 
 
 class LockedClass:
-    """class lockerClass
-    """
+    'low memory cost
+    '
     __slots__ = ["first_name"]
