@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Student to disk and reload"""
+"""Student to JSON with filter"""
 
 
 class Student:
@@ -21,8 +21,3 @@ class Student:
                     new_dict[element] = self.__dict__[element]
             return (new_dict)
         return (self.__dict__)
-
-    def reload_from_json(self, json):
-        """replaces all attributes of the Student instance"""
-        for key, value in json.items():
-            setattr(self, key, value)
